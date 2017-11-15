@@ -25,7 +25,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 from django.conf.urls import url
 
 from . import settings as app_settings
-from . import views
+from djstripe import views
 
 
 app_name = "djstripe"

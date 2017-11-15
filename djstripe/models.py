@@ -32,7 +32,7 @@ from polymorphic.models import PolymorphicModel
 from stripe.error import InvalidRequestError, StripeError
 
 from . import settings as djstripe_settings
-from . import enums, webhooks
+from djstripe import enums, webhooks
 from .context_managers import stripe_temporary_api_version
 from .enums import SourceType, SubscriptionStatus
 from .exceptions import MultipleSubscriptionException, StripeObjectManipulationException
@@ -2889,4 +2889,4 @@ class EventProcessingException(models.Model):
 
 # Much like registering signal handlers. We import this module so that its registrations get picked up
 # the NO QA directive tells flake8 to not complain about the unused import
-from . import event_handlers  # NOQA, isort:skip
+from djstripe import event_handlers  # NOQA, isort:skip

@@ -19,7 +19,7 @@ from django.utils.dateparse import date_re
 @checks.register("djstripe")
 def check_stripe_api_key(app_configs=None, **kwargs):
     """Check the user has configured API live/test keys correctly."""
-    from . import settings as djstripe_settings
+    from djstripe import settings as djstripe_settings
     messages = []
 
     if not djstripe_settings.STRIPE_SECRET_KEY:
@@ -56,7 +56,7 @@ def validate_stripe_api_version(version):
 @checks.register("djstripe")
 def check_stripe_api_version(app_configs=None, **kwargs):
     """Check the user has configured API version correctly."""
-    from . import settings as djstripe_settings
+    from djstripe import settings as djstripe_settings
     messages = []
     default_version = djstripe_settings.DEFAULT_STRIPE_API_VERSION
     version = djstripe_settings.get_stripe_api_version()
@@ -83,7 +83,7 @@ def check_native_jsonfield_postgres_engine(app_configs=None, **kwargs):
     """
     Check that the DJSTRIPE_USE_NATIVE_JSONFIELD isn't set unless Postgres is in use.
     """
-    from . import settings as djstripe_settings
+    from djstripe import settings as djstripe_settings
 
     messages = []
     error_msg = "DJSTRIPE_USE_NATIVE_JSONFIELD is not compatible with engine {engine} for database {name}"

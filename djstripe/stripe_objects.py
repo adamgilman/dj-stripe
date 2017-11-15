@@ -2,7 +2,7 @@
 
 import warnings
 
-from . import models
+from djstripe import models
 
 
 from .models import *  # noqa, isort:skip
